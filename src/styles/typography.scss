@@ -1,0 +1,200 @@
+.copy {
+  ul {
+    list-style-image: url("/assets/checkmark.svg");
+    list-style-position: inside;
+    margin-left: 1.5rem;
+    margin-top: 2rem;
+
+    li {
+      padding-left: .5rem;
+      margin-bottom: .5rem;
+    }
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply text-xl font-bold mb-6;
+    line-height: 100%;
+  }
+
+  p {
+
+  }
+
+  &--hero {
+    @apply text-white;
+
+    ul {
+      margin-left: 0;
+      list-style-image: url("/assets/checkmark-white.svg");
+      list-style-position: outside;
+
+      li {
+        margin-left: 1rem;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    h1, h2 {
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-top: 1rem;
+      line-height: 100%;
+    }
+
+    p {
+      @apply w-[60%];
+    }
+  }
+
+  &--half-side {
+    h1, h2, h3, h4, h5 {
+      font-size: 56px;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
+    }
+
+    a {
+      @apply text-blue-base font-bold border-b border-transparent hover:border-blue-base duration-300 transition-all;
+    }
+  }
+
+  &--secondary {
+    h1, h2, h3, h4, h5 {
+      font-size: 2rem;
+    }
+
+    @apply text-blue-main;
+  }
+
+  &--service {
+    ul {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &--features {
+    ul {
+      list-style-image: url("/assets/checkmark.svg");
+      list-style-position: outside;
+      margin-top: 0;
+      margin-left: 0;
+
+
+      li {
+        margin-left: 1.5rem;
+
+        h2, h3, h4, h5 {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.mid-section {
+  @apply w-full flex text-blue-main flex-col md:flex-row;
+  h1, h2, h3, h4, h5 {
+    @apply text-5xl font-bold mb-2;
+  }
+
+  p {
+    @apply text-xl mb-2;
+    font-weight: 600;
+  }
+
+  span {
+    font-size: 16px;
+  }
+
+}
+
+.footer-copy, .footer-links {
+  h5 {
+    font-weight: 700;
+  }
+
+  a {
+    &:hover {
+      @apply text-blue-base duration-300;
+    }
+  }
+}
+
+.footer-copy {
+  margin-bottom: 1.5rem;
+
+  h5, p, li {
+    margin-bottom: 4px;
+  }
+
+}
+
+.footer-links {
+  margin-bottom: 2rem;
+
+  h5, p, li {
+    margin-bottom: 8px;
+  }
+}
+
+.accordion--primary .copy {
+  h1, h2, h3, h4, h5 {
+    margin-top: 2.5rem;
+  }
+
+  p {
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+  }
+}
+
+.lead {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: .5rem;
+  margin-bottom: 1.5rem;
+}
+
+.article {
+  @apply my-32;
+
+
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  h5 {
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+    line-height: 160%;
+    font-weight: 700;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    width: 100%;
+    margin: 4.5rem 0;
+  }
+
+  blockquote {
+    @apply border-l-2 border-blue-base text-blue-base pl-6;
+    font-style: italic;
+    line-height: 160%;
+    margin-bottom: 2rem;
+
+  }
+}

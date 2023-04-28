@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Raleway', sans-serif;
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply text-black;
+  }
+}
+
+@import "button";
+@import "typography";
+@import "effects";
+
+@import "grid";
+@import "slider";
+@import "layout";
+@import "accordion";

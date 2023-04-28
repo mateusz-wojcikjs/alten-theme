@@ -1,0 +1,31 @@
+.button {
+  @apply px-5 py-3 text-white duration-300 rounded-full border;
+  position: relative;
+  display: inline-block;
+  transition: border-color ease 300ms, color ease 300ms, background-color ease 300ms;
+
+  &--primary {
+    @apply bg-blue-base border-blue-base hover:bg-white hover:text-blue-base;
+  }
+
+  &--secondary {
+    @apply bg-white text-black border-black hover:bg-black hover:text-white;
+  }
+
+  &--tertiary {
+    @apply text-white bg-black border-black hover:text-black hover:bg-white;
+  }
+
+  &--transparent {
+    @apply bg-transparent text-white border-white hover:text-black hover:bg-white;
+  }
+
+  &--main {
+    @apply bg-transparent text-blue-main border-blue-main hover:bg-blue-main hover:text-white;
+  }
+
+  &--dark {
+    @apply bg-blue-main text-white border-blue-main hover:bg-transparent hover:text-blue-main;
+  }
+
+}
