@@ -10,15 +10,15 @@ window.addEventListener("scroll", () => {
 
   if (window.location.pathname !== "/") return;
   if (window.scrollY > 80) {
-    navbar.classList.remove("bg-transparent");
-    navbar.classList.remove("text-white");
+    navbar.classList.remove("nav--homepage");
+    // navbar.classList.remove("text-white");
     navbar.classList.add("bg-white");
     navbar.classList.add("text-black");
   } else {
     navbar.classList.remove("bg-white");
     navbar.classList.remove("text-black");
-    navbar.classList.add("bg-transparent");
-    navbar.classList.add("text-white");
+    navbar.classList.add("nav--homepage");
+    // navbar.classList.add("text-white");
   }
 });
 
@@ -153,7 +153,6 @@ if (sectionToRight) {
     updateSectionPositionToContainerSize(tailwindContainer)
   );
 }
-
 const initAccordion = (accordion) => {
   const accordionItems =
     accordion.querySelectorAll(".accordion-item");
@@ -166,6 +165,28 @@ const initAccordion = (accordion) => {
     header.addEventListener("click", () => {
       item.classList.toggle("active");
       content.classList.toggle("active");
+      const buttonApply = document.querySelector(
+        `[data-button="apply"]`
+      );
+
+      if (buttonApply) {
+        buttonApply.addEventListener("click", (e) =>
+          e.stopPropagation()
+        );
+      }
+
+      if (
+        content.parentElement.classList.contains("accordion--buttons")
+      ) {
+        const button = document.querySelector(
+          `[data-accordion='${item.attributes["data-button"].value}']`
+        );
+        if (item.classList.contains("active")) {
+          button.innerText = "Zamknij";
+        } else {
+          button.innerText = "Szczegóły";
+        }
+      }
 
       // If there's a nested accordion, initialize it
       const nestedAccordion = content.querySelector(".accordion");
@@ -177,7 +198,6 @@ const initAccordion = (accordion) => {
 };
 
 const accordions = document.querySelectorAll(".accordion");
-
 accordions.forEach((accordion) => {
   initAccordion(accordion);
 });
@@ -186,10 +206,38 @@ const dropdowns = document.querySelectorAll(".dropdown");
 
 dropdowns.forEach((dropdown) => {
   const parent = dropdown.parentElement;
+  const parentMenuItem = [...parent.children].find(
+    (element) => element.nodeName === "A"
+  );
+  const closeButton = [...dropdown.children].find(
+    (element) => element.nodeName === "BUTTON"
+  );
+
   parent.addEventListener("mouseenter", () => {
-    dropdown.style.display = "block";
+    dropdown.style.display = "flex";
+    parent.classList.add("active");
   });
   parent.addEventListener("mouseleave", () => {
     dropdown.style.display = "none";
+    parent.classList.remove("active");
   });
+
+  if (window.innerWidth <= 1024) {
+    parentMenuItem.addEventListener("click", (e) => {
+      e.preventDefault();
+      parent.classList.add("open");
+    });
+
+    closeButton &&
+      closeButton.addEventListener("click", () => {
+        parent.classList.remove("open");
+      });
+  }
+});
+
+const hamburger = document.getElementById("hamburger");
+const nav = document.getElementById("navigation");
+
+hamburger.addEventListener("click", () => {
+  nav.classList.toggle("active");
 });

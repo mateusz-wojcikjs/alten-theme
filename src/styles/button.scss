@@ -28,4 +28,12 @@
     @apply bg-blue-main text-white border-blue-main hover:bg-transparent hover:text-blue-main;
   }
 
+  &--light {
+    @apply text-gray-steel border-transparent hover:text-blue-main hover:bg-gray-base;
+
+    &.active {
+      @apply bg-gray-base text-blue-main hover:border-blue-main;
+    }
+  }
+
 }

@@ -12,7 +12,8 @@ module.exports = {
         gray: {
           shadow: "#F9F9F9",
           base: "#F4F4F5",
-          dark: "#A3A3A3"
+          dark: "#A3A3A3",
+          steel: "#505D68"
         },
         black: "#1d1d1d",
         blue: {

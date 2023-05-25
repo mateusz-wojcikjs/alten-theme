@@ -75,44 +75,93 @@
 >
     <div class="container">
         <div
-                class="flex items-center justify-between py-3 shadow-decorative"
+                class="flex items-center justify-between py-6 lg:py-3 shadow-decorative"
         >
             <a href="/">
                 <img alt="ALten logo" src="assets/logo.svg"/>
             </a>
 
-            <ul class="nav-links">
-                <li>
-                    <a href="/kim-jestesmy.html">Kim jesteśmy</a>
-                </li>
-                <li>
-                    <a href="/uslugi.html">Uslugi</a>
-                    <ul class="dropdown">
-                        <li><a href="/konsulting-inzynieryjny.html">Konsulting inżynieryjny</a></li>
-                        <li><a href="/konsulting-technologiczny.html">Konsulting technologiczny</a></li>
-                        <li><a href="/rozwiazania-dedykowane.html">Rozwiazania dedykowane</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/sektory.html">Sektory</a>
-                    <ul class="dropdown">
-                        <li><a href="/sektory.html">Bankowość/finanse/ubezpieczenia</a></li>
-                        <li><a href="/sektory.html">Automotive</a></li>
-                        <li><a href="/sektory.html">Telekomunikacja</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/kariera.html">Kariera</a>
-                </li>
-                <li>
-                    <a href="/blog.html">Blog i newsy</a>
-                </li>
-            </ul>
+            <div class="nav-mobile">
+                <ul class="nav-links">
+                    <li>
+                        <a href="/kim-jestesmy.html">Kim jesteśmy</a>
+                    </li>
+                    <li class="mobile-submenu">
+                        <ul class="dropdown">
+                            <button>
+                                <svg fill="none" height="22" viewBox="0 0 22 22" width="22"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.43789 9.66653H21.6666V12.3332H5.43789L12.5898 19.4851L10.7042 21.3707L0.333313 10.9999L10.7042 0.628906L12.5898 2.51452L5.43789 9.66653Z"
+                                          fill="#1D1D1D"/>
+                                </svg>
+                            </button>
+                            <span class="submenu-title">Usługi</span>
+                            <li><a href="/konsulting-inzynieryjny.html">Konsulting inżynieryjny</a></li>
+                            <li><a href="/konsulting-technologiczny.html">Konsulting technologiczny</a></li>
+                            <li><a href="/rozwiazania-dedykowane.html">Rozwiazania dedykowane</a></li>
 
-            <div class="flex gap-x-8">
-                <button>PL</button>
-                <a class="button button--primary" href="/">Kontakt</a>
+                        </ul>
+                        <a href="/uslugi.html">Usługi</a>
+                    </li>
+                    <li class="mobile-submenu">
+                        <ul class="dropdown">
+                            <button>
+                                <svg fill="none" height="22" viewBox="0 0 22 22" width="22"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.43789 9.66653H21.6666V12.3332H5.43789L12.5898 19.4851L10.7042 21.3707L0.333313 10.9999L10.7042 0.628906L12.5898 2.51452L5.43789 9.66653Z"
+                                          fill="#1D1D1D"/>
+                                </svg>
+                            </button>
+                            <span class="submenu-title">Sektory</span>
+                            <li><a href="/sektory.html">Bankowość/finanse/ubezpieczenia</a></li>
+                            <li><a href="/sektory.html">Automotive</a></li>
+                            <li><a href="/sektory.html">Telekomunikacja</a></li>
+                        </ul>
+                        <a href="/sektory.html">Sektory</a>
+                    </li>
+                    <li class="mobile-submenu">
+                        <ul class="dropdown">
+                            <button>
+                                <svg fill="none" height="22" viewBox="0 0 22 22" width="22"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.43789 9.66653H21.6666V12.3332H5.43789L12.5898 19.4851L10.7042 21.3707L0.333313 10.9999L10.7042 0.628906L12.5898 2.51452L5.43789 9.66653Z"
+                                          fill="#1D1D1D"/>
+                                </svg>
+                            </button>
+                            <span class="submenu-title">Kariera</span>
+                            <li><a href="/oferty-pracy.html">Oferty pracy</a></li>
+                            <li><a href="/kariera.html">Kariera Alten</a></li>
+                            <li><a href="/polec-alten.html">Alten Talenty - Poleć nas</a></li>
+                        </ul>
+                        <a href="/kariera.html">Kariera</a>
+                    </li>
+                    <li>
+                        <a href="/blog.html">Blog i newsy</a>
+                    </li>
+                    <li>
+                        <a href="/kultura.html">Kultura</a>
+                    </li>
+                    <li class="link-mobile">
+                        <a href="/kontakt.html">Kontakt</a>
+                    </li>
+                </ul>
+                <div class="lg:hidden flex-1 flex flex-col justify-end items-start">
+                    <button>PL</button>
+                </div>
             </div>
+
+            <div class="hidden lg:flex gap-x-8">
+                <button>PL</button>
+                <a class="button button--primary" href="/kontakt.html">Kontakt</a>
+            </div>
+
+
+            <button class="hamburger" id="hamburger">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+                <span class="bar bar4"></span>
+            </button>
         </div>
     </div>
 </nav>
@@ -140,17 +189,17 @@
             </div>
         </div>
         <div class="reveal flex flex-col md:flex-row items-end gap-8 md:pt-15 lg:pt-30">
-            <div class="md:basis-5/12 pt-15 md:pt-30 w-full">
+            <div class="md:basis-5/12 w-full">
                 <img
                         alt=""
-                        class="h-full md:max-h-[50vh] w-full"
+                        class="h-full md:max-h-[50vh] w-full object-cover pt-15 md:pt-30"
                         src="assets/img1.png"
                 />
             </div>
-            <div class="basis-7/12">
+            <div class="w-full md:basis-7/12">
                 <img
                         alt=""
-                        class="h-auto max-h-[50vh] w-full object-center"
+                        class="h-auto max-h-[50vh] w-full object-cover"
                         src="assets/img2.png"
                 />
             </div>
@@ -473,25 +522,25 @@
                     <h5>Kariera</h5>
                     <ul>
                         <li>
-                            <a href="/">Oferty pracy</a>
+                            <a href="/oferty-pracy.html">Oferty pracy</a>
                         </li>
                         <li>
-                            <a href="/">Kariera Alten</a>
+                            <a href="/kariera.html">Kariera Alten</a>
                         </li>
                         <li>
-                            <a href="/">Alten Talenty - Poleć nas</a>
+                            <a href="/polec-alten.html">Alten Talenty - Poleć nas</a>
                         </li>
 
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h5><a href="/">Blog i newsy</a></h5>
+                    <h5><a href="/blog.html">Blog i newsy</a></h5>
                 </div>
                 <div class="footer-links">
-                    <h5><a href="/">Kultura</a></h5>
+                    <h5><a href="/kultura.html">Kultura</a></h5>
                 </div>
                 <div class="footer-links">
-                    <h5><a href="/">Kontakt</a></h5>
+                    <h5><a href="/kontakt.html">Kontakt</a></h5>
                 </div>
             </div>
         </div>

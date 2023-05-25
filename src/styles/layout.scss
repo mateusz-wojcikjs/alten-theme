@@ -14,29 +14,257 @@
   margin-right: 0;
 }
 
-nav {
+nav.navbar {
+  .nav-mobile {
+    @apply duration-300 h-[calc(100vh-112px)] lg:h-auto fixed flex-col lg:relative flex -translate-y-[calc(100%+112px)] lg:translate-y-0 lg:top-auto pb-12 lg:pb-0;
+
+    .nav-links {
+      @apply opacity-0 lg:opacity-100;
+      transition: opacity 500ms ease;
+      transition-delay: 150ms;
+    }
+  }
+
   .nav-links {
-    @apply flex gap-x-8 h-full h-[64px];
+    @apply bg-white lg:bg-transparent flex-col lg:relative lg:flex-row flex gap-x-8 h-full lg:h-[64px] font-bold lg:font-normal pt-16 lg:pt-0;
+
 
     li {
       display: flex;
       align-items: center;
-      position: relative;
+      border-bottom: 2px solid;
+      @apply border-b-transparent mb-8 lg:mb-0 text-lead lg:text-sm lg:relative;
+
+      &.link-mobile {
+        @apply lg:hidden;
+      }
+
+      &.active {
+        @apply lg:border-blue-base;
+
+        a {
+          &::after, &::before {
+            @apply bg-blue-base;
+          }
+        }
+      }
+
+      ul + a {
+        padding-right: 1rem;
+
+        &::after, &::before {
+          position: absolute;
+          right: -7px;
+          content: "";
+          transition: all 300ms ease;
+          width: 6px;
+          height: 1px;
+          top: 50%;
+          @apply hidden bg-black lg:block;
+        }
+
+        &::before {
+          transform: translateX(-7px) rotate(45deg);
+        }
+
+        &::after {
+          transform: translateX(-3px) rotate(-45deg);
+        }
+      }
+
+
     }
 
     .dropdown {
-      display: none;
       position: absolute;
+      top: 0;
       background: #fff;
-      width: 200px;
       color: #1d1d1d;
-      top: 100%;
-      @apply shadow;
+      z-index: 99;
+      @apply lg:hidden lg:shadow lg:px-4 pt-16 lg:pt-2 lg:pb-2 flex-col lg:top-[calc(100%+2px)] w-screen lg:w-[275px] h-screen lg:h-auto;
+
+      li {
+        @apply py-2 mb-2;
+      }
 
       a {
-        padding: .5rem;
+        width: 100%;
+        line-height: 160%;
+        @apply text-2xl lg:text-sm font-normal;
+
+        &:hover {
+          @apply text-blue-base;
+        }
+      }
+
+      button {
+        @apply lg:hidden absolute top-0;
+      }
+
+      .submenu-title {
+        @apply lg:hidden mb-8;
       }
 
     }
   }
+
+  &.nav--homepage {
+
+    .nav-links {
+      background: transparent;
+      color: white;
+    }
+
+    li {
+      &.active a {
+        &::after, &::before {
+          @apply bg-blue-base;
+        }
+      }
+    }
+
+    li ul + a {
+      &::after, &::before {
+        @apply bg-white;
+      }
+    }
+
+    .bar {
+      background-color: #fff;
+    }
+
+    &.active.nav--homepage {
+      .hamburger {
+        .bar1, .bar4 {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &.active {
+    .nav-mobile {
+      @apply top-[112px] lg:top-auto translate-y-0;
+
+      .nav-links {
+        opacity: 1;
+      }
+
+      &:after {
+        content: "";
+        width: calc(300px + 100vw);
+        background: #fff;
+        position: absolute;
+        left: -300px;
+        height: 100%;
+        z-index: -1;
+      }
+    }
+  }
 }
+
+.hamburger {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  margin-right: 1rem;
+  @apply lg:hidden;
+
+  &:hover .bar {
+    @apply bg-black;
+  }
+
+  .bar {
+    @apply bg-black;
+    padding: 0;
+    height: 3px;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.4s ease-in-out;
+    position: absolute;
+  }
+
+  .bar1 {
+    width: 24px;
+    top: 0;
+    right: 0;
+  }
+
+  .bar2,
+  .bar3 {
+    width: 18px;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  .bar3 {
+    right: 0;
+  }
+
+  .bar4 {
+    width: 24px;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+
+.active {
+  .hamburger {
+    .bar1 {
+      transform: translateX(40px);
+      background-color: transparent;
+    }
+
+    .bar2 {
+      transform: rotate(45deg);
+    }
+
+    .bar3 {
+      transform: rotate(-45deg);
+    }
+
+    .bar4 {
+      transform: translateX(-40px);
+      background-color: transparent;
+    }
+
+    .bar2,
+    .bar3 {
+      width: 24px;
+    }
+  }
+}
+
+.mobile-submenu {
+  .dropdown {
+    @apply translate-x-full duration-300 lg:translate-x-0;
+  }
+
+  &.open {
+    .dropdown {
+      @apply translate-x-0;
+
+    }
+  }
+}
+
+.navbar.nav--homepage {
+  background-color: transparent;
+  @apply text-black lg:text-white;
+
+  &.active {
+    background-color: #fff;
+
+    .nav-mobile .nav-links {
+      @apply text-black;
+    }
+
+
+    .hamburger .bar {
+      @apply bg-black;
+    }
+  }
+}
+
