@@ -109,25 +109,6 @@ if (swiper) {
       prevEl: ".swiper-button-prev"
     }
   });
-
-  // ids.forEach((slider) => {
-  //   new Swiper(`#${slider}`, {
-  //     slidesPerView: 1,
-  //     spaceBetween: 30,
-  //     pagination: {
-  //       el: ".swiper-pagination",
-  //       clickable: true
-  //     },
-  //     breakpoints: {
-  //       480: {
-  //         slidesPerView: 2
-  //       },
-  //       899: {
-  //         slidesPerView: 4
-  //       }
-  //     }
-  //   });
-  // });
 }
 
 const sectionToRight = document.getElementById("sliderMask");
@@ -241,3 +222,79 @@ const nav = document.getElementById("navigation");
 hamburger.addEventListener("click", () => {
   nav.classList.toggle("active");
 });
+
+let map;
+
+async function initMap() {
+  const { Map } = await google.maps.importLibrary("maps");
+  map = new Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8
+  });
+}
+
+initMap();
+
+// Get all the SVG decorative triangles
+const triangles = document.querySelectorAll(".decorative-triangle");
+
+// Function to generate a random number within a given range
+function getRandomValue() {
+  return Math.floor(Math.random() * 31) - 10; // Generate a random number between -10 and 10
+} // Function to generate a random number within a given range
+function getRandomRotateValue() {
+  return Math.floor(Math.random() * 60);
+}
+
+if (triangles.length) {
+  triangles.forEach((triangle, index) => {
+    const animationName = `float${index + 1}`;
+
+    const style = document.createElement("style");
+    style.textContent = `
+    @keyframes ${animationName} {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      20% { transform: translate(${getRandomValue()}px, ${getRandomValue()}px) rotate(${getRandomRotateValue()}deg); }
+      40% { transform: translate(${getRandomValue()}px, ${getRandomValue()}px) rotate(${getRandomRotateValue()}deg); }
+      60% { transform: translate(${getRandomValue()}px, ${getRandomValue()}px) rotate(${getRandomRotateValue()}deg); }
+      80% { transform: translate(${getRandomValue()}px, ${getRandomValue()}px) rotate(${getRandomRotateValue()}deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+  `;
+
+    triangle.style.setProperty("--animation-name", animationName);
+
+    document.head.appendChild(style);
+  });
+}
+
+const timeLineSlider = document.getElementById("timeLineSlider");
+
+if (timeLineSlider) {
+  const test = [
+    "2022",
+    "2021",
+    "2020",
+    "2019",
+    "2018",
+    "2017",
+    "2016",
+    "2015"
+  ];
+  new Swiper(timeLineSlider, {
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        console.log(index);
+        return (
+          '<span class="' + className + '">' + test[index] + "</span>"
+        );
+      }
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    }
+  });
+}

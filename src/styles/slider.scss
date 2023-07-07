@@ -22,6 +22,14 @@
   transition: transform 300ms ease;
 }
 
+.post-img {
+  height: 240px;
+
+  img {
+    height: 100%;
+  }
+}
+
 .image-effect-group {
   &:hover img {
     transform: scale(1.075);
@@ -54,5 +62,56 @@
 
   .swiper-button-prev {
     transform: rotate(180deg);
+  }
+}
+
+.time-line-slider {
+  position: relative;
+
+  //.swiper-wrapper {
+  //max-height: 50vh;
+  //overflow-y: scroll;
+  //}
+
+  .swiper-wrapper {
+
+  }
+
+  .swiper-nav {
+    width: 100px;
+    position: absolute;
+    top: 9rem;
+    right: 50%;
+    transform: translateX(50%);
+    height: 50px;
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+
+    .swiper-button-next, .swiper-button-prev {
+      position: relative;
+    }
+
+    .swiper-button-next::after, .swiper-button-prev::after {
+      content: "";
+    }
+
+    .swiper-button-prev {
+      transform: rotate(180deg);
+    }
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    top: 6rem;
+
+    .swiper-pagination-bullet {
+      background: none;
+      @apply text-xl font-bold w-12;
+    }
+
+    .swiper-pagination-bullet-active {
+      @apply text-blue-base;
+    }
   }
 }

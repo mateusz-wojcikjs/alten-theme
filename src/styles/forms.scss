@@ -46,8 +46,12 @@
     transform: rotate(45deg);
   }
 
-  .custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
+  .custom-checkbox .active.checkmark::after {
     display: block;
+  }
+
+  .custom-checkbox .wpcf7-form-control-wrap {
+    visibility: collapse;
   }
 }
 

@@ -6,6 +6,7 @@
   padding: 0;
 
   &--primary {
+    outline: none;
     border-width: 1px;
     border-style: solid;
     @apply border-blue-base px-4 lg:px-10 text-blue-main;
@@ -256,6 +257,10 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 1s ease-out;
+}
+
+.sectors .accordion-content {
+  transition: none;
 }
 
 .accordion-item.active + .accordion-content {

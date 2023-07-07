@@ -92,3 +92,9 @@
 .navbar {
   @apply fixed top-0 z-50 w-full  text-sm  duration-300;
 }
+
+.thumbnail-full {
+  img {
+    width: 100%;
+  }
+}

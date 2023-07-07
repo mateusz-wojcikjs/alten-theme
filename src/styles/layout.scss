@@ -26,7 +26,7 @@ nav.navbar {
   }
 
   .nav-links {
-    @apply bg-white lg:bg-transparent flex-col lg:relative lg:flex-row flex gap-x-8 h-full lg:h-[64px] font-bold lg:font-normal pt-16 lg:pt-0;
+    @apply bg-white lg:bg-transparent flex-col lg:relative lg:flex-row flex gap-x-6 h-full lg:h-[64px] font-bold lg:font-normal pt-16 lg:pt-0;
 
 
     li {
@@ -264,6 +264,80 @@ nav.navbar {
 
     .hamburger .bar {
       @apply bg-black;
+    }
+  }
+}
+
+#map {
+  height: 100%;
+  min-height: 650px;
+}
+
+.decorative-triangle {
+  animation-name: var(--animation-name);
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  @apply hidden md:block;
+}
+
+.overlay-white {
+  position: relative;
+
+  &::after {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 125px);
+    height: 100%;
+    width: 100%;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  grid-gap: 1rem;
+
+
+  &--date {
+    position: relative;
+    text-align: center;
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 40px;
+      right: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: calc(100% - 40px);
+      @apply bg-black;
+    }
+  }
+
+  &--date, h3 {
+    @apply font-bold text-xl;
+  }
+
+  &--content p {
+    @apply pt-4 pb-10;
+  }
+
+  &--images-box {
+    display: flex;
+    @apply gap-2 pb-12;
+
+    div {
+      width: 100%;
+    }
+
+    img {
+      max-height: 120px;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }

@@ -36,4 +36,43 @@
     }
   }
 
+  &--small-main {
+    @apply px-4 py-1 text-blue-base border-blue-base hover:border-blue-main hover:text-blue-main;
+  }
+
+  &--wpcf {
+    @apply flex justify-center items-center text-center;
+    .wpcf7-spinner {
+      @apply absolute -right-1/2;
+    }
+  }
+
+  &--select {
+    /* Styling the options */
+    @apply px-4 py-1 text-blue-base border-blue-base bg-white;
+    //hover:border-blue-main hover:text-blue-main;
+
+    option {
+      @apply px-2 py-1;
+      font-size: 16px;
+      color: #333;
+      background-color: #fff;
+    }
+
+    /* Styling the selected option */
+    option:checked {
+      background-color: #f0f0f0;
+    }
+  }
 }
+
+.custom-select {
+  cursor: pointer;
+  padding: .75rem 5rem .75rem 2.5rem;
+  position: relative;
+  width: 124px;
+  z-index: 99;
+}
+
+
+

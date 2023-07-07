@@ -3,12 +3,20 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     container: {
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1130px",
+        "2xl": "1480px"
+      },
       center: true,
       padding: "1rem"
     },
     extend: {
       colors: {
         white: "#fff",
+        yellow: "#FFDC09",
         gray: {
           shadow: "#F9F9F9",
           base: "#F4F4F5",
