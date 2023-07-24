@@ -250,6 +250,25 @@
         transform: translateX(-3px) rotate(45deg);
       }
     }
+
+    .accordion-button {
+      #readMore {
+        display: none;
+      }
+      #close {
+        display: block;
+      }
+      @apply bg-white text-blue-base hover:bg-blue-base hover:text-white;
+    }
+  }
+
+  .accordion-button {
+    #readMore {
+      display: block;
+    }
+    #close {
+      display: none;
+    }
   }
 }
 

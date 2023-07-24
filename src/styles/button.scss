@@ -4,7 +4,7 @@
   display: inline-block;
   transition: border-color ease 300ms, color ease 300ms, background-color ease 300ms;
 
-  &--primary {
+  &--primary, &.accordion-button {
     @apply bg-blue-base border-blue-base hover:bg-white hover:text-blue-base;
   }
 
