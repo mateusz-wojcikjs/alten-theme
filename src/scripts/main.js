@@ -266,6 +266,14 @@ if (triangles.length) {
 
     document.head.appendChild(style);
   });
+
+  window.addEventListener("scroll", function () {
+    const parallaxImage = document.querySelector(".triangle");
+    const scrolled = window.scrollY;
+    parallaxImage.style.transform = `translateY(-${
+      scrolled * 0.2
+    }px)`; // Adjust the factor as needed
+  });
 }
 
 const timeLineSlider = document.getElementById("timeLineSlider");
@@ -298,3 +306,87 @@ if (timeLineSlider) {
     }
   });
 }
+
+const selectTrigger = document.querySelector(".select-trigger");
+const optionList = document.querySelector(".option-list");
+const optionItems = document.querySelectorAll(".option-list li");
+
+if (selectTrigger) {
+  selectTrigger.addEventListener("click", function () {
+    selectTrigger.classList.toggle("open");
+    optionList.style.display =
+      optionList.style.display === "block" ? "none" : "block";
+  });
+
+  optionItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      const selectedValue = this.dataset.value;
+      selectTrigger.textContent = this.textContent;
+      optionList.style.display = "none";
+      selectTrigger.classList.remove("open");
+
+      // Use 'selectedValue' as needed (e.g., submit it in a form)
+      console.log("Selected value:", selectedValue);
+    });
+  });
+}
+
+function animateCountUpOnScroll(
+  element,
+  targetNumber,
+  decimalPlaces = 0
+) {
+  const duration = 2000;
+  const startTimestamp = performance.now();
+  const initialValue = parseFloat(element.innerText) || 0;
+
+  function updateCounter(timestamp) {
+    const elapsed = timestamp - startTimestamp;
+    const progress = Math.min(elapsed / duration, 1);
+
+    const currentValue =
+      initialValue + (targetNumber - initialValue) * progress;
+    element.innerText = currentValue.toFixed(decimalPlaces);
+
+    if (progress < 1) {
+      requestAnimationFrame(updateCounter);
+    }
+  }
+
+  requestAnimationFrame(updateCounter);
+}
+
+function handleIntersection(entries, observer) {
+  entries.forEach((entry) => {
+    console.log([...entry.target.getElementsByTagName("h4")]);
+
+    if (entry.isIntersecting) {
+      [...entry.target.getElementsByTagName("h4")].forEach(
+        (element) => {
+          const targetNumber = parseFloat(element.dataset.count) || 0;
+          const decimalPlaces =
+            parseInt(element.dataset.decimalPlaces) || 0;
+
+          animateCountUpOnScroll(
+            element,
+            targetNumber,
+            decimalPlaces
+          );
+        }
+      );
+
+      observer.unobserve(entry.target);
+    }
+  });
+}
+
+const options = {
+  threshold: 0.5 // Adjust as needed
+};
+
+const observer = new IntersectionObserver(
+  handleIntersection,
+  options
+);
+const counterSection = document.getElementById("counter-section"); // Replace with the ID of your counter section
+observer.observe(counterSection);

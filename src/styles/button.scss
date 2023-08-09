@@ -49,7 +49,7 @@
 
   &--select {
     /* Styling the options */
-    @apply px-4 py-1 text-blue-base border-blue-base bg-white;
+    @apply text-blue-base border-blue-base bg-white;
     //hover:border-blue-main hover:text-blue-main;
 
     option {
@@ -67,11 +67,77 @@
 }
 
 .custom-select {
-  cursor: pointer;
-  padding: .75rem 5rem .75rem 2.5rem;
   position: relative;
-  width: 124px;
-  z-index: 99;
+  width: 200px; /* Set the desired width */
+}
+
+.select-trigger {
+  display: block;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 300ms ease;
+  border-radius: 1.5rem;
+  @apply px-5 py-3 border border-blue-main text-blue-main;
+
+  &::after, &::before {
+    position: absolute;
+    right: 12px;
+    content: "";
+    transition: all 300ms ease;
+    width: 9px;
+    height: 1px;
+    top: 50%;
+    transform-origin: 0 0;
+    @apply bg-black;
+  }
+
+
+  &::before {
+    transform: rotate(45deg) translateX(-9px);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &.open {
+    @apply rounded-b-none;
+
+    &::before {
+      transform: rotate(-45deg) translateX(-9px);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+
+
+}
+
+.option-list {
+  @apply text-blue-main;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  z-index: 1;
+  width: 100%;
+}
+
+.option-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.option-list li:hover {
+  background-color: #f0f0f0;
 }
 
 

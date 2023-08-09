@@ -255,9 +255,11 @@
       #readMore {
         display: none;
       }
+
       #close {
         display: block;
       }
+
       @apply bg-white text-blue-base hover:bg-blue-base hover:text-white;
     }
   }
@@ -266,6 +268,7 @@
     #readMore {
       display: block;
     }
+
     #close {
       display: none;
     }
@@ -278,7 +281,7 @@
   transition: max-height 1s ease-out;
 }
 
-.sectors .accordion-content {
+.toggle-accordion .accordion-content {
   transition: none;
 }
 

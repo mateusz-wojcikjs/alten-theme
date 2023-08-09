@@ -148,6 +148,12 @@
     font-size: 56px;
     @apply font-bold text-5xl mb-6 block;
   }
+
+  &--case-study {
+    ul {
+      list-style-image: url("/assets/checkmark-blue.svg");
+    }
+  }
 }
 
 .mid-section {

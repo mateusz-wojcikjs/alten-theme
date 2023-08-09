@@ -86,7 +86,7 @@
                     <li>
                         <a href="/kim-jestesmy.html">Kim jesteśmy</a>
                     </li>
-                    <li class="mobile-submenu">
+                    <li class="mobile-submenu level-menu">
                         <ul class="dropdown">
                             <button>
                                 <svg fill="none" height="22" viewBox="0 0 22 22" width="22"
@@ -103,7 +103,7 @@
                         </ul>
                         <a href="/uslugi.html">Usługi</a>
                     </li>
-                    <li class="mobile-submenu">
+                    <li class="mobile-submenu level-menu">
                         <ul class="dropdown">
                             <button>
                                 <svg fill="none" height="22" viewBox="0 0 22 22" width="22"
@@ -119,7 +119,7 @@
                         </ul>
                         <a href="/sektory.html">Sektory</a>
                     </li>
-                    <li class="mobile-submenu">
+                    <li class="mobile-submenu level-menu">
                         <ul class="dropdown">
                             <button>
                                 <svg fill="none" height="22" viewBox="0 0 22 22" width="22"
@@ -412,21 +412,21 @@
             class="container absolute left-1/2 mt-0 -translate-x-1/2 pr-8"
             id="container"
     >
-        <div class="reveal-right mid-section">
+        <div class="reveal-right mid-section" id="counter-section">
             <div class="basis-1/3">
-                <h4>54100</h4>
+                <h4 data-count="54100" id="counter1">1</h4>
                 <p>Pracowników</p>
                 <span>(88% to inżynierowaie i developerzy)</span>
             </div>
             <div class="basis-1/3">
-                <h4>30</h4>
+                <h4 data-count="30">1</h4>
                 <p>Państw</p>
                 <span
                 >w których jesteśmy obecni w Europie i na Świecie</span
                 >
             </div>
             <div class="basis-1/3">
-                <h4>3.783 mld</h4>
+                <h4 data-count="3.783" data-decimal-places="3"></h4>mld
                 <p>Roczne obroty grupy</p>
                 <span>w 2022 roku</span>
             </div>
@@ -434,7 +434,10 @@
     </div>
 </div>
 
-<section>
+<section class="relative overflow-hidden">
+    <div class="triangle triangle--right">
+        <img alt="" src="./assets/triangle-red-lg.svg">
+    </div>
     <div class="container py-30 overflow-hidden">
         <div class="flex gap-x-8">
             <div class="flex md:basis-1/3 items-end">
@@ -478,8 +481,58 @@
         <div class="flex reveal mt-20">
             <div class="md:basis-7/12 relative">
                 <img alt="" class="w-full" src="assets/services.png">
-                <div class="absolute bottom-1/2 -right-24 md:bottom-0 lg:bottom-[15%] md:-right-[65%] lg:-right-[55%] 2xl:-right-[40%] scale-50 lg:scale-100">
-                    <img alt="" src="assets/polygons-services.png">
+                <div class="absolute bottom-1/2 -right-24 md:bottom-0 lg:bottom-[15%] md:-right-[65%] lg:-right-[55%] 2xl:-right-[40%] scale-50 lg:scale-100 h-full w-full">
+                    <svg class="decorative-triangle absolute top-12 right-[25%]" fill="none" height="16"
+                         viewBox="0 0 16 16"
+                         width="16"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.41454 0.459546L15.567 10.9982L0.864037 15.3872L4.41454 0.459546Z" fill="#0080CA"/>
+                    </svg>
+
+                    <svg class="decorative-triangle absolute top-[20%] right-[15%]" fill="none" height="34"
+                         viewBox="0 0 32 34" width="32" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M31.4607 13.5683L4.12082 34.0009L0.0955862 0.107609L31.4607 13.5683Z" fill="#D12D26"/>
+                    </svg>
+
+                    <svg class="decorative-triangle absolute top-[33%] right-[25%]" fill="none" height="35"
+                         viewBox="0 0 32 35" width="32" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M31.3505 0.77467L27.3727 34.6736L0.00426752 14.2793L31.3505 0.77467Z" fill="#0080CA"/>
+                    </svg>
+
+                    <svg class="decorative-triangle absolute top-[45%] right-[10%]" fill="none" height="55"
+                         viewBox="0 0 50 55" width="50" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46.2427 0.173751L49.4607 54.3774L0.909944 30.0624L46.2427 0.173751Z" fill="#D12D26"/>
+                    </svg>
+
+                    <svg class="decorative-triangle absolute top-[55%] right-[33%]" fill="none" height="31"
+                         viewBox="0 0 36 31" width="36" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M35.0203 1.21834L17.4926 30.5055L0.89299 0.682483L35.0203 1.21834Z" fill="#FFDC09"/>
+                    </svg>
+
+                    <svg class="decorative-triangle absolute top-[66%] right-[50%]" fill="none" height="16"
+                         viewBox="0 0 16 16"
+                         width="16"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.41454 0.459546L15.567 10.9982L0.864037 15.3872L4.41454 0.459546Z" fill="#0080CA"/>
+                    </svg>
+                    <svg class="decorative-triangle absolute top-[70%] right-[40%]" fill="none" height="135"
+                         viewBox="0 0 152 135" width="152" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M79.8922 132.966L1.08754 6.51713L149.998 1.49451L79.8922 132.966Z" stroke="#0080CA"
+                              stroke-width="1.19169"/>
+                    </svg>
+                    <svg class="decorative-triangle absolute top-[73%] right-[20%]" fill="none" height="56"
+                         viewBox="0 0 64 56" width="64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M63.8775 1.02598L31.2761 55.4999L0.40098 0.0292893L63.8775 1.02598Z" fill="#0080CA"/>
+                    </svg>
+                    <svg class="decorative-triangle absolute top-[73%] right-[10%]" fill="none" height="154"
+                         viewBox="0 0 139 154" width="139" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.56653 152.952L9.83611 1.25723L137.072 84.2661L1.56653 152.952Z" stroke="#D12D26"
+                              stroke-width="1.19169"/>
+                    </svg>
+                    <svg class="decorative-triangle absolute top-[66%] right-[10%]" fill="none" height="49"
+                         viewBox="0 0 48 49" width="48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M47.3592 16.7671L10.2867 48.9273L0.971399 0.741495L47.3592 16.7671Z" fill="#FFDC09"/>
+                    </svg>
                 </div>
             </div>
 

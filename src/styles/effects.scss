@@ -98,3 +98,16 @@
     width: 100%;
   }
 }
+
+.triangle {
+  @apply absolute top-1/2;
+
+  &--right {
+    @apply -right-12;
+  }
+
+  &--left {
+
+  }
+
+}
